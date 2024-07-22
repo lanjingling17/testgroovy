@@ -46,12 +46,6 @@ pipeline {
                 script {
                     // 进入指定目录
                     dir("genesis-pm-api-tests") {
-                        // 定义 HTML 文件路径
-                        def htmlFilePath = "output_parallel/report.html"
-
-                        // 使用 Jenkins 的 readFile 读取文件内容
-                        def content = readFile(file: htmlFilePath)
-
                         // ANSI 转换函数
                         def ansiToHtml = { text ->
                             def ansiEscape = [
@@ -78,11 +72,31 @@ pipeline {
                             return htmlText
                         }
 
-                        // 调用 ansiToHtml 转换内容
-                        def htmlContent = ansiToHtml(content)
 
-                        // 写入转换后的 HTML 文件（如果需要）
-                        writeFile(file: htmlFilePath, text: htmlContent)
+                        // // 定义 HTML 文件路径
+                        // def htmlFilePath = "output_parallel/report.html"
+
+                        // // 使用 Jenkins 的 readFile 读取文件内容
+                        // def content = readFile(file: htmlFilePath)
+
+                        
+
+                        // // 调用 ansiToHtml 转换内容
+                        // def htmlContent = ansiToHtml(content)
+
+                        // // 写入转换后的 HTML 文件（如果需要）
+                        // writeFile(file: htmlFilePath, text: htmlContent)
+
+
+
+
+                        // 进行转换操作
+                        def htmlFilePath = "output_parallel/report.html"
+                        def file = new File(htmlFilePath)
+                        def content = file.getText('UTF-8')
+
+                        def html_content = ansiToHtml(content)
+                        file.setText(html_content, 'UTF-8')
                     }
                 }
             }
