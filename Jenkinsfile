@@ -84,30 +84,30 @@ pipeline {
                         }
 
 
-                        // // 定义 HTML 文件路径
-                        // def htmlFilePath = "output_parallel/report.html"
+                        // 定义 HTML 文件路径
+                        def htmlFilePath = "output_parallel/report.html"
 
-                        // // 使用 Jenkins 的 readFile 读取文件内容
-                        // def content = readFile(file: htmlFilePath)
+                        // 使用 Jenkins 的 readFile 读取文件内容
+                        def content = readFile(file: htmlFilePath,encoding: 'UTF-8')
 
                         
 
-                        // // 调用 ansiToHtml 转换内容
-                        // def htmlContent = ansiToHtml(content)
+                        // 调用 ansiToHtml 转换内容
+                        def htmlContent = ansiToHtml(content)
 
-                        // // 写入转换后的 HTML 文件（如果需要）
-                        // writeFile(file: htmlFilePath, text: htmlContent)
-
-
+                        // 写入转换后的 HTML 文件（如果需要）
+                        writeFile(file: htmlFilePath, text: htmlContent,encoding: 'UTF-8')
 
 
-                        // 进行转换操作
-                        def htmlFilePath = "output_parallel/report.html"
-                        def file = new File(htmlFilePath)
-                        def content = file.getText('UTF-8')
 
-                        def html_content = ansiToHtml(content)
-                        file.setText(html_content, 'UTF-8')
+
+                        // // 进行转换操作
+                        // def htmlFilePath = "output_parallel/report.html"
+                        // def file = new File(htmlFilePath)
+                        // def content = file.getText('UTF-8')
+
+                        // def html_content = ansiToHtml(content)
+                        // file.setText(html_content, 'UTF-8')
                     }
                 }
             }
