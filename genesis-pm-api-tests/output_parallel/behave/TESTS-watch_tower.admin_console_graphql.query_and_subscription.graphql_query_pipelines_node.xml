@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time="35.86035490036011" tests='3' skipped='0'
+name="Watch_Toweradmin_Console_Graphqlquery_And_Subscriptiongraphql_Query_Pipelines_Node" failures='1' errors='0'><testcase time="4.6197099685668945" name="Init_Queries_And_Connect_To_Admin_Db_Before_Testing" status="passed"
+         classname="Pipelines_Node_Test"><system-out>
+            <![CDATA[
+            @scenario.begin
+                @AdminConsoleGraphql   @WatchTower   @Parallel   @testa
+                scenario: Init queries and connect to Admin DB before testing
+                given Init queries and connect to Admin DB ... passed in 2.327s 
+                given Dynamically set parameter values ... passed in 2.293s 
+@scenario.end
+            ----------------------------------------------------------------------------------------------------
+            ]]>
+            </system-out>
+        </testcase><testcase time="31.231563806533813" name="(Aoc-34188_Pipelines_37)_Verify_Graphql_Can_Correctly_Find_Pipeline_Runs_In_Period_Of_Last24H_--_@1.1_" status="failed"
+         classname="Pipelines_Node_Test"><failure type="Assertionerror" message=''>
+                        <![CDATA[ Failing step: then Verify that the results returned by Graphql are consistent with the DB results ... failed in 0.02057s  Location:Featureswatch_Toweradmin_Console_Graphqlquery_And_Subscriptiongraphql_Query_Pipelines_Node.Feature
+                         File "C:\Users\atong\Documents\GitHub\genesis-pm-api-tests\venv\Lib\site-packages\behave\model.py", line 1329, in run
+    match.run(runner.context)
+
+                  File "C:\Users\atong\Documents\GitHub\genesis-pm-api-tests\venv\Lib\site-packages\behave\matchers.py", line 98, in run
+    self.func(context, *args, **kwargs)
+
+                  File "features\steps\admin_console_query_json_step.py", line 230, in compare_result
+    assert len(test_result) == 0, "ERROR:\n" + report
+           ^^^^^^^^^^^^^^^^^^^^^
+                        ]]>
+                    </failure><system-out>
+            <![CDATA[
+            @scenario.begin
+                @AdminConsoleGraphql   @WatchTower   @Parallel   @testa
+                scenario: (AOC-34188_pipelines_37) Verify Graphql can correctly find pipeline runs in period of 'Last24h' -- @1.1 
+                given Send Graphql query: query_pipelines_pipelineRuns_Last24h to get graphql result ... passed in 5.504s 
+                when Run sql queries in DB to get sql result ... passed in 25.71s 
+                then Verify that the results returned by Graphql are consistent with the DB results ... failed in 0.02057s 
+@scenario.end
+            ----------------------------------------------------------------------------------------------------
+            ]]>
+            </system-out>
+        </testcase><testcase time="0.009081125259399414" name="Close_Admin_Db_Connection" status="passed"
+         classname="Pipelines_Node_Test"><system-out>
+            <![CDATA[
+            @scenario.begin
+                @AdminConsoleGraphql   @WatchTower   @Parallel   @testa
+                scenario: Close Admin DB connection
+                given Close Admin DB connection_json ... passed in 0.009081s 
+@scenario.end
+            ----------------------------------------------------------------------------------------------------
+            ]]>
+            </system-out>
+        </testcase></testsuite>
