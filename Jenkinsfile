@@ -41,6 +41,17 @@ pipeline {
     agent any
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()  // Jenkins 的 clean workspace 步骤
+            }
+        }
+        stage('Checkout Code') {
+            steps {
+                checkout scm  // 检出最新代码
+            }
+        }
+
         stage('Convert Report') {
             steps {
                 script {
